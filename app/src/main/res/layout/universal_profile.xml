@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Name"
+        android:layout_marginTop="@dimen/margin_huge"
+        android:textColor="@color/nliveo_green_alpha_colorPrimaryDark"
+        android:textSize="@dimen/abc_text_size_headline_material"
+        android:id="@+id/UserName"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_huge"
+        android:textSize="@dimen/abc_text_size_subhead_material"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/UserName"
+        android:text="Description: "
+        android:id="@+id/descLabel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/abc_text_size_subhead_material"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="None Specified"
+        android:id="@+id/desc"
+        android:layout_alignTop="@+id/descLabel"
+        android:layout_toRightOf="@+id/descLabel"
+        android:layout_toEndOf="@+id/descLabel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:textSize="@dimen/abc_text_size_subhead_material"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/descLabel"
+        android:text="Email: "
+        android:id="@+id/emailLabel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/abc_text_size_subhead_material"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="None Specified"
+        android:id="@+id/emai"
+        android:layout_alignTop="@+id/emailLabel"
+        android:layout_toRightOf="@+id/emailLabel"
+        android:layout_toEndOf="@+id/emailLabel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:textSize="@dimen/abc_text_size_subhead_material"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/emailLabel"
+        android:text="Current Employment: "
+        android:id="@+id/empLabel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/abc_text_size_subhead_material"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="None Specified"
+        android:id="@+id/emp"
+        android:layout_alignTop="@+id/empLabel"
+        android:layout_toRightOf="@+id/empLabel"
+        android:layout_toEndOf="@+id/empLabel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:textSize="@dimen/abc_text_size_subhead_material"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/empLabel"
+        android:text="Education: "
+        android:id="@+id/eduLabel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/abc_text_size_subhead_material"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="None Specified"
+        android:id="@+id/edu"
+        android:layout_alignTop="@+id/eduLabel"
+        android:layout_toRightOf="@+id/eduLabel"
+        android:layout_toEndOf="@+id/eduLabel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:textSize="@dimen/abc_text_size_subhead_material"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/eduLabel"
+        android:text="Current Address: "
+        android:id="@+id/addressLabel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/abc_text_size_subhead_material"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="None Specified"
+        android:id="@+id/addre"
+        android:layout_alignTop="@+id/addressLabel"
+        android:layout_toRightOf="@+id/addressLabel"
+        android:layout_toEndOf="@+id/addressLabel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:textSize="@dimen/abc_text_size_subhead_material"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/addressLabel"
+        android:text="Premium Status: "
+        android:id="@+id/premLabel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/abc_text_size_subhead_material"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="None Specified"
+        android:id="@+id/prem"
+        android:layout_alignTop="@+id/premLabel"
+        android:layout_toRightOf="@+id/premLabel"
+        android:layout_toEndOf="@+id/premLabel" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_huge"
+        android:text="New Button"
+        android:id="@+id/connect_disconnect"
+        android:layout_below="@+id/premLabel"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/mys"
+        android:id="@+id/imageView2"
+        android:layout_below="@+id/UserName"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

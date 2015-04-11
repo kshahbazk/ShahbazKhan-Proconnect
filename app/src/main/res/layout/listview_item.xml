@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <TextView
+        android:id="@+id/namelabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/namelabel" />
+
+    <TextView
+        android:id="@+id/name"
+        android:text="none specified"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/namelabel" />
+
+    <TextView
+        android:id="@+id/emaillabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/namelabel"
+        android:text="@string/emaillabel" />
+
+    <TextView
+        android:id="@+id/email"
+        android:text="none specified"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_toRightOf="@+id/emaillabel" />
+
+    <TextView
+        android:id="@+id/positionlabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/email"
+        android:text="@string/positionlabel" />
+
+    <TextView
+        android:id="@+id/position"
+        android:text="none specified"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/email"
+        android:layout_toRightOf="@+id/positionlabel" />
+
+    <TextView
+        android:id="@+id/companylabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/position"
+        android:text="@string/companylabel" />
+
+    <TextView
+        android:id="@+id/company"
+        android:layout_width="wrap_content"
+        android:text="none specified"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/position"
+        android:layout_toRightOf="@+id/companylabel" />
+
+    <!--<ImageView-->
+        <!--android:id="@+id/tyrion"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:background="#000000"-->
+        <!--android:padding="1dp" />-->
+
+</RelativeLayout>
