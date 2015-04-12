@@ -23,12 +23,12 @@ import momenify.proconnect.navigationviewpagerliveo.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class fragment_myprofile extends Fragment {
+public class FagmentMyProfile extends Fragment {
 
     private boolean mSearchCheck;
 
 
-    public fragment_myprofile() {
+    public FagmentMyProfile() {
         // Required empty public constructor
     }
 
@@ -37,7 +37,7 @@ public class fragment_myprofile extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.activity_profile_view, container, false);
+        return inflater.inflate(R.layout.universal_profile, container, false);
 
     }
 
