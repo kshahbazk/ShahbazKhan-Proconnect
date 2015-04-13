@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 
 import momenify.proconnect.fragment.FragmentConnectionRequests;
 import momenify.proconnect.fragment.FragmentMain;
-import momenify.proconnect.fragment.fragment_myconnections;
+import momenify.proconnect.fragment.FragmentMyConnections;
 
 public class TabPagerItem {
 	
@@ -16,7 +16,7 @@ public class TabPagerItem {
         this.mTitle = title;
         this.position = position;
 
-        listFragments = new Fragment[] {new FragmentMain().newInstance(title.toString()), new fragment_myconnections(), new FragmentConnectionRequests()};
+        listFragments = new Fragment[] {new FragmentMain().newInstance(title.toString()), new FragmentMyConnections(), new FragmentConnectionRequests()};
     }
 
     public Fragment createFragment() {

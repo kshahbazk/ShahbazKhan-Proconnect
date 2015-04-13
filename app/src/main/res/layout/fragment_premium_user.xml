@@ -1,10 +1,36 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="momenify.proconnect.fragment.FragmentPremiumUser">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="@string/hello_blank_fragment"
+        android:id="@+id/premiumStatus"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/margin_large"
+        android:textSize="@dimen/abc_text_size_headline_material"
+        android:textColor="@color/nliveo_green_alpha_colorPrimaryDark"
+        />
 
-</FrameLayout>
+    <TextView
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Would you like to become a premium member?"
+        android:id="@+id/premiumMessage"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/abc_text_size_subhead_material"
+        android:visibility="visible"
+        android:layout_marginTop="@dimen/margin_medium"
+        />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Upgrade Premium"
+        android:id="@+id/upgradeButton"
+        android:layout_gravity="center_horizontal"
+        android:visibility="visible"
+        />
+
+</LinearLayout>

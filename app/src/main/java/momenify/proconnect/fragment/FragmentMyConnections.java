@@ -19,7 +19,6 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.parse.ParseException;
-import com.parse.ParseObject;
 import com.parse.ParseRelation;
 import com.parse.ParseUser;
 
@@ -35,17 +34,16 @@ import momenify.proconnect.objects.AUserProfile;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class fragment_myconnections extends Fragment {
+public class FragmentMyConnections extends Fragment {
 
     ListView listview;
     private boolean mSearchCheck;
     List<ParseUser> ob;
-    List<ParseObject> db;
     ProgressDialog mProgressDialog;
     ListViewAdapter adapter;
     private List<AUserProfile> myConnections = null;
 
-    public fragment_myconnections() {
+    public FragmentMyConnections() {
         // Required empty public constructor
     }
 
@@ -85,27 +83,20 @@ public class fragment_myconnections extends Fragment {
             // Create the array
             myConnections = new ArrayList<AUserProfile>();
             try {
-                // query all connection requests from parse.com
-                //  ParseQuery<ParseUser> query = ParseQuery.getQuery("connections");
-
-
+                // Get the relations of the current user, which are ParseUsers
                 ParseRelation<ParseUser> query = ParseUser.getCurrentUser().getRelation("connections");
-
+                //Fill the list of ParseUsers with our query
                 ob = query.getQuery().find();
-
 
                 // Map the into User Profile
 
                 for (ParseUser user : ob) {
-                    // Locate images in flag column
-                    //ParseFile image = (ParseFile) user.get("flag");
 
                     AUserProfile map = new AUserProfile();
                     map.setName((String) user.get("name"));
                     map.setEmail((String) user.get("email"));
                     map.setPosition((String) user.get("position"));
                     map.setCompany((String) user.get("company"));
-                    //  map.setFlag(image.getUrl());
                     myConnections.add(map);
                 }
             } catch (ParseException e) {
@@ -163,8 +154,6 @@ public class fragment_myconnections extends Fragment {
             case R.id.menu_add:
 
                 ParseUser.logOut();
-
-
                 Intent i = new Intent(getActivity(), LoginActivity.class);
                 startActivity(i);
                 break;
@@ -187,20 +176,12 @@ public class fragment_myconnections extends Fragment {
                     i2.putExtra("Search", s);
                     startActivity(i2);
                 }
-                // implement your search here
             }
             return false;
         }
 
         @Override
         public boolean onQueryTextChange(String s) {
-//           if (mSearchCheck){
-//               if(s!=null) {
-//                   Intent i2 = new Intent(getActivity(), ListActivity.class);
-//                   startActivity(i2);
-//               }
-//               // implement your search here
-//           }
             return false;
         }
 

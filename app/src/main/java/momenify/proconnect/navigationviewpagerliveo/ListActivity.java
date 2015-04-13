@@ -14,8 +14,8 @@ import com.parse.ParseUser;
 import java.util.ArrayList;
 import java.util.List;
 
-import momenify.proconnect.objects.AUserProfile;
 import momenify.proconnect.adapter.ListViewAdapter;
+import momenify.proconnect.objects.AUserProfile;
 
 public class ListActivity extends ActionBarActivity {
 
@@ -29,7 +29,7 @@ public class ListActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
-         new RemoteDataTask().execute();
+        new RemoteDataTask().execute();
     }
 
 
@@ -54,95 +54,27 @@ public class ListActivity extends ActionBarActivity {
             // Create the array
             searchedUsers = new ArrayList<AUserProfile>();
             try {
-
+                //Query for all users
                 ParseQuery<ParseUser> UserQuery = ParseUser.getQuery();
-
-//                query.whereContains("name", searchData);
-//                query.findInBackground(new FindCallback<ParseObject>() {
-//                    public void done(List<ParseObject> objList,ParseException e) {
-//                        if (e == null) {
-//                            Log.d("score","@@@@Retrieved " + objList.size()+ " scores");
-//
-//                        } else {
-//                            Log.d("score", "@@@Error: " + e.getMessage());
-//                        }
-//                    }
-//                });
-
-                //tob=UserQuery.find();
-
+                // Create a bundle in which you can recieve the search string from our search bar
                 Bundle extras = getIntent().getExtras();
                 String thesearch = extras.getString("Search");
-                if(thesearch.contains("@"))
-                {
-                ob=UserQuery.whereMatches("email", "("+thesearch+")", "i").find();
-                    if(ob==null)
-                    {
+                if (thesearch.contains("@")) {
+                    ob = UserQuery.whereMatches("email", "(" + thesearch + ")", "i").find();
 
-                    }
-//                UserQuery.findInBackground(new FindCallback<ParseUser>() {
-//                    public void done(List<ParseUser> objList,ParseException e) {
-//                        if (e == null) {
-//                            Log.d("email","@@@@Retrieved " + objList.size()+ " scores");
-//
-//                            ob=objList;
-//
-//                        } else {
-//                            Log.d("email", "@@@Error: " + e.getMessage());
-//                        }
-//                    }
-//                });
-                }
-                else
-                {
-                   ob = UserQuery.whereMatches("name", "("+thesearch+")", "i").find();
-                    if(ob==null)
-                    {
+                } else {
+                    ob = UserQuery.whereMatches("name", "(" + thesearch + ")", "i").find();
 
-                    }
-//                    UserQuery.findInBackground(new FindCallback<ParseUser>() {
-//                        public void done(List<ParseUser> objList,ParseException e) {
-//                            if (e == null) {
-//                                Log.d("name","@@@@Retrieved " + objList.size()+ " scores");
-//
-//                                ob=objList;
-//
-//                            } else {
-//                                Log.d("name", "@@@Error: " + e.getMessage());
-//                            }
-//                        }
-//                    });
                 }
 
-
-
-
-                // Locate the class table named "User" in Parse.com
-//                ParseQuery<ParseUser> query = new ParseQuery<ParseUser>(
-//                        "User");
-                // Locate the column named "name" in Parse.com and order list
-                // by ascending
-                //query.orderByAscending("name");
-              //  ob = query.find();
-
-//                ParseUser me = ParseUser.getCurrentUser();
-//
-//                ob.add(me);
-//                ob.add(me);
-//                ob.add(me);
-//                ob.add(me);
-//                ob.add(me);
 
                 for (ParseUser user : ob) {
-                    // Locate images in flag column
-                    //ParseFile image = (ParseFile) user.get("flag");
 
                     AUserProfile map = new AUserProfile();
                     map.setName((String) user.get("name"));
                     map.setEmail((String) user.get("email"));
                     map.setPosition((String) user.get("position"));
                     map.setCompany((String) user.get("company"));
-                  //  map.setFlag(image.getUrl());
                     searchedUsers.add(map);
                 }
             } catch (ParseException e) {

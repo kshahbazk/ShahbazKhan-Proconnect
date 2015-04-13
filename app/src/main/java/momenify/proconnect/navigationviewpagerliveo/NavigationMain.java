@@ -16,31 +16,22 @@ import java.util.List;
 
 import br.liveo.interfaces.NavigationLiveoListener;
 import br.liveo.navigationliveo.NavigationLiveo;
+import momenify.proconnect.fragment.FagmentMyProfile;
 import momenify.proconnect.fragment.FragmentMain;
+import momenify.proconnect.fragment.FragmentMyConnections;
 import momenify.proconnect.fragment.FragmentPremiumUser;
 import momenify.proconnect.fragment.FragmentViewPager;
-import momenify.proconnect.fragment.fragment_myconnections;
-import momenify.proconnect.fragment.fragment_myprofile;
 
-public class NavigationMain extends NavigationLiveo  implements NavigationLiveoListener  {
+public class NavigationMain extends NavigationLiveo implements NavigationLiveoListener {
 
     private List<String> mListNameItem;
     private ParseUser myUser;
     private String name;
     private String email;
     private static final int LOGIN_REQUEST = 0;
+
     @Override
     public void onInt(Bundle bundle) {
-
-
-
-
-
-
-//        ParseObject.registerSubclass(AUserProfile.class);
-//        Parse.initialize(this, "ssIqti6an7anOenvJvIXBDPUurX70V6rXyKxONcx", "LwzXfVOaoe26QKvUCNia8jisgul1nS3c2Lk2whMX");
-//        Parse.setLogLevel(Parse.LOG_LEVEL_DEBUG);
-
 
         this.setNavigationListener(this);
 
@@ -79,7 +70,6 @@ public class NavigationMain extends NavigationLiveo  implements NavigationLiveoL
     }
 
 
-
     public class SampleDispatchActivity extends ParseLoginDispatchActivity {
         @Override
         protected Class<?> getTargetClass() {
@@ -89,17 +79,15 @@ public class NavigationMain extends NavigationLiveo  implements NavigationLiveoL
 
     @Override
     public void onUserInformation() {
-     //  if(myUser!=null) {
 
         myUser = ParseUser.getCurrentUser();
         name = myUser.getString("name");
         email = myUser.getEmail();
 
-            this.mUserName.setText(name);
-            this.mUserEmail.setText(email);
-     //   }
-            this.mUserPhoto.setImageResource(R.drawable.ic_tyrion);
-            this.mUserBackground.setImageResource(R.drawable.ic_user_background);
+        this.mUserName.setText(name);
+        this.mUserEmail.setText(email);
+        this.mUserPhoto.setImageResource(R.drawable.ic_tyrion);
+        this.mUserBackground.setImageResource(R.drawable.ic_user_background);
 
     }
 
@@ -109,15 +97,15 @@ public class NavigationMain extends NavigationLiveo  implements NavigationLiveoL
         Fragment mFragment;
         FragmentManager mFragmentManager = getSupportFragmentManager();
 
-        switch (position){
+        switch (position) {
             case 0:
-                mFragment = new fragment_myprofile();
+                mFragment = new FagmentMyProfile();
                 break;
             case 1:
                 mFragment = new FragmentViewPager();
                 break;
             case 3:
-                mFragment = new fragment_myconnections();
+                mFragment = new FragmentMyConnections();
                 break;
             case 5:
                 mFragment = new FragmentPremiumUser();
@@ -127,7 +115,7 @@ public class NavigationMain extends NavigationLiveo  implements NavigationLiveoL
                 mFragment = new FragmentMain().newInstance(mListNameItem.get(position));
         }
 
-        if (mFragment != null){
+        if (mFragment != null) {
             mFragmentManager.beginTransaction().replace(layoutContainerId, mFragment).commit();
         }
 

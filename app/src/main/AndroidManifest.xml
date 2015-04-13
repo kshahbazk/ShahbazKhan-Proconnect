@@ -46,12 +46,6 @@
             android:name="momenify.proconnect.objects.UserProfileView"
             android:label="@string/title_activity_user_profile_view" >
         </activity>
-        <!--<activity-->
-            <!---->
-            <!--android:name="momenify.proconnect.objects.Acceptance"-->
-           <!--<category android:name="android.intent.category.DEFAULT" />-->
-           <!--< android:label="@string/title_activity_acceptance" >-->
-        <!--</activity>-->
 
     <activity android:name="momenify.proconnect.objects.Acceptance" android:theme="@style/nLiveoDrawer">
         <intent-filter>

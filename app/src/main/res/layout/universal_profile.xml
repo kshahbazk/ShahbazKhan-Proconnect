@@ -6,7 +6,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="User Name"
-        android:layout_marginTop="@dimen/margin_huge"
+        android:layout_marginTop="@dimen/margin_large"
         android:textColor="@color/nliveo_green_alpha_colorPrimaryDark"
         android:textSize="@dimen/abc_text_size_headline_material"
         android:id="@+id/UserName"
@@ -18,11 +18,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_medium"
-        android:layout_marginTop="@dimen/margin_huge"
+        android:layout_marginTop="@dimen/margin_medium"
         android:textSize="@dimen/abc_text_size_subhead_material"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/UserName"
+        android:layout_below="@+id/mys"
         android:text="Description: "
         android:id="@+id/descLabel" />
 
@@ -69,7 +69,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/emailLabel"
-        android:text="Current Employment: "
+        android:text="Current Employer: "
         android:id="@+id/empLabel" />
 
     <TextView
@@ -164,8 +164,9 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
         android:src="@drawable/mys"
-        android:id="@+id/imageView2"
+        android:id="@+id/mys"
         android:layout_below="@+id/UserName"
         android:layout_centerHorizontal="true" />
 

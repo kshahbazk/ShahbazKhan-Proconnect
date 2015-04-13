@@ -9,17 +9,12 @@ import com.parse.ParseUser;
 /**
  * Created by shahbazkhan on 3/23/15.
  */
-public class ParseApplication extends Application {
+public class ProconnectApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
 
-        // Add your initialization code here
-
-
-
         Parse.initialize(this, "ssIqti6an7anOenvJvIXBDPUurX70V6rXyKxONcx", "LwzXfVOaoe26QKvUCNia8jisgul1nS3c2Lk2whMX");
-        //ParseObject.registerSubclass(AUserProfile.class);
         ParseUser.enableAutomaticUser();
         ParseACL defaultACL = new ParseACL();
 

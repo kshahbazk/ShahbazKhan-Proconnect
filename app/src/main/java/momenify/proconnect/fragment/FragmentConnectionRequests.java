@@ -2,13 +2,20 @@ package momenify.proconnect.fragment;
 
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.parse.ParseException;
@@ -20,6 +27,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import momenify.proconnect.adapter.CRListViewAdapter;
+import momenify.proconnect.navigationviewpagerliveo.ListActivity;
+import momenify.proconnect.navigationviewpagerliveo.LoginActivity;
 import momenify.proconnect.navigationviewpagerliveo.R;
 import momenify.proconnect.objects.AUserProfile;
 
@@ -32,6 +41,7 @@ public class FragmentConnectionRequests extends Fragment {
     List<ParseObject> ob;
     ProgressDialog mProgressDialog;
     CRListViewAdapter adapter;
+    private boolean mSearchCheck;
     private List<AUserProfile> connectionRequests = null;
 
 
@@ -54,6 +64,7 @@ public class FragmentConnectionRequests extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // When the fragment is created run, the async task
         new RemoteDataTask().execute();
     }
 
@@ -78,27 +89,21 @@ public class FragmentConnectionRequests extends Fragment {
             // Create the array
             connectionRequests = new ArrayList<AUserProfile>();
             try {
-                 // query all connection requests from parse.com
+                // query all connection requests from parse.com
                 ParseQuery<ParseObject> query = ParseQuery.getQuery("connectionRequest");
+                // set the toUser field in the ConnectionRequest object, to the current user
+                query.whereEqualTo("toUser", ParseUser.getCurrentUser());
 
-                 query.whereEqualTo("toUser", ParseUser.getCurrentUser());
-
-                 query.orderByAscending("createdAt");
-
-                  ob = query.find();
+                query.orderByAscending("createdAt");
+                // Fill lill of ParseObjects with our query
+                ob = query.find();
 
                 // Map the into User Profile
 
-                  for (ParseObject user : ob) {
-                    // Locate images in flag column
-                    //ParseFile image = (ParseFile) user.get("flag");
+                for (ParseObject user : ob) {
 
                     AUserProfile map = new AUserProfile();
                     map.setName((String) user.getParseUser("fromUser").fetchIfNeeded().get("name"));
-                   // map.setEmail((String) user.get("email"));
-                   // map.setPosition((String) user.get("position"));
-                    //map.setCompany((String) user.get("company"));
-                    //  map.setFlag(image.getUrl());
                     connectionRequests.add(map);
                 }
             } catch (ParseException e) {
@@ -121,6 +126,76 @@ public class FragmentConnectionRequests extends Fragment {
             mProgressDialog.dismiss();
         }
     }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        // TODO Auto-generated method stub
+        super.onActivityCreated(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        // TODO Auto-generated method stub
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu, menu);
+
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.menu_search));
+        searchView.setQueryHint(this.getString(R.string.search));
+
+        ((EditText) searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text))
+                .setHintTextColor(getResources().getColor(R.color.nliveo_white));
+        searchView.setOnQueryTextListener(onQuerySearchView);
+
+        menu.findItem(R.id.menu_add).setVisible(true);
+        menu.findItem(R.id.menu_search).setVisible(true);
+
+        mSearchCheck = false;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // TODO Auto-generated method stub
+
+        switch (item.getItemId()) {
+
+            case R.id.menu_add:
+
+                ParseUser.logOut();
+                Intent i = new Intent(getActivity(), LoginActivity.class);
+                startActivity(i);
+                break;
+
+            case R.id.menu_search:
+                mSearchCheck = true;
+
+                break;
+        }
+        return true;
+    }
+
+    private SearchView.OnQueryTextListener onQuerySearchView = new SearchView.OnQueryTextListener() {
+        @Override
+        public boolean onQueryTextSubmit(String s) {
+
+            if (mSearchCheck) {
+                if (s != null) {
+                    Intent i2 = new Intent(getActivity(), ListActivity.class);
+                    i2.putExtra("Search", s);
+                    startActivity(i2);
+                }
+            }
+            return false;
+        }
+
+        @Override
+        public boolean onQueryTextChange(String s) {
+
+            return false;
+        }
+
+
+    };
 
 
 }

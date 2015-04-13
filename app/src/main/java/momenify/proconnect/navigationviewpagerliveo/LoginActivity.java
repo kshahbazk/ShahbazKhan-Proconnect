@@ -12,7 +12,7 @@ import com.parse.Parse;
 import com.parse.ParseUser;
 import com.parse.ui.ParseLoginBuilder;
 
-public class LoginActivity extends Activity{
+public class LoginActivity extends Activity {
 
     private static final int LOGIN_REQUEST = 0;
 
@@ -25,30 +25,31 @@ public class LoginActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         Parse.initialize(this, "ssIqti6an7anOenvJvIXBDPUurX70V6rXyKxONcx", "LwzXfVOaoe26QKvUCNia8jisgul1nS3c2Lk2whMX");
         Parse.setLogLevel(Parse.LOG_LEVEL_DEBUG);
 
         setContentView(R.layout.login_page);
-    titleTextView = (TextView) findViewById(R.id.profile_title);
+        titleTextView = (TextView) findViewById(R.id.profile_title);
 
-    loginButton = (Button) findViewById(R.id.login_or_logout_button);
-    titleTextView.setText(R.string.profile_title_logged_out);
+        loginButton = (Button) findViewById(R.id.login_or_logout_button);
+        titleTextView.setText(R.string.profile_title_logged_out);
 
-    loginButton.setOnClickListener(new OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            if (currentUser != null) {
-                // User is logged in do nothing
+        loginButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (currentUser != null) {
+                    // User is logged in do nothing
 
-            } else {
-                // User clicked to log in.
-                ParseLoginBuilder loginBuilder = new ParseLoginBuilder(
-                        LoginActivity.this);
-                startActivityForResult(loginBuilder.build(), LOGIN_REQUEST);
+                } else {
+                    // User clicked to log in.
+                    ParseLoginBuilder loginBuilder = new ParseLoginBuilder(
+                            LoginActivity.this);
+                    startActivityForResult(loginBuilder.build(), LOGIN_REQUEST);
+                }
             }
-        }
-    });
-}
+        });
+    }
 
     @Override
     protected void onStart() {
