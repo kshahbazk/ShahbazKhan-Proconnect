@@ -3,7 +3,6 @@ package momenify.proconnect.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -21,6 +20,9 @@ import android.widget.TextView;
 
 import com.parse.ParseUser;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
+
 import momenify.proconnect.navigationviewpagerliveo.ListActivity;
 import momenify.proconnect.navigationviewpagerliveo.LoginActivity;
 import momenify.proconnect.navigationviewpagerliveo.R;
@@ -34,7 +36,7 @@ public class FragmentMyProfile extends Fragment {
     private boolean mSearchCheck;
     boolean premium;
     private FragmentActivity myContext;
-   // private FrameLayout rl;
+    // private FrameLayout rl;
 
 
     public FragmentMyProfile() {
@@ -45,56 +47,56 @@ public class FragmentMyProfile extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.universal_profile, container, false);
+        View v = inflater.inflate(R.layout.fragment_my_profile, container, false);
 
 
-            premium = ParseUser.getCurrentUser().getBoolean("premium");
-            // Locate the TextViews and button in universal_profile.xml
-            TextView txtname = (TextView) v.findViewById(R.id.UserName);
-            TextView txtemail = (TextView) v.findViewById(R.id.emai);
-            TextView premiumstat = (TextView) v.findViewById(R.id.prem);
+        premium = ParseUser.getCurrentUser().getBoolean("premium");
+        // Locate the TextViews and button in universal_profile.xml
+        TextView txtname = (TextView) v.findViewById(R.id.name);
+        TextView txtemail = (TextView) v.findViewById(R.id.email);
+        TextView premiumstat = (TextView) v.findViewById(R.id.member);
+        TextView joined = (TextView) v.findViewById(R.id.join);
 
-            Button edit = (Button) v.findViewById(R.id.connect_disconnect);
+        Button edit = (Button) v.findViewById(R.id.updateButton);
 
-            //populate textviews
-            edit.setText("Edit Profile");
-            txtname.setText(ParseUser.getCurrentUser().getString("name"));
-            txtemail.setText(ParseUser.getCurrentUser().getString("email"));
-            //Check to see if user is premium or not
-        if(premium)
-        {
-            premiumstat.setText("Premium");
-            premiumstat.setTextColor(Color.GREEN);
+        //format the created at Date into a string
+        Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        //populate textviews
+        txtname.setText(ParseUser.getCurrentUser().getString("name"));
+        txtemail.setText(ParseUser.getCurrentUser().getString("email"));
+        joined.setText(formatter.format(ParseUser.getCurrentUser().getCreatedAt()));
+
+        //Check to see if user is premium or not
+        if (premium) {
+            premiumstat.setText("Premium Member");
+
+        } else {
+            premiumstat.setText("Standard Member");
+
         }
-        else
-        {
-            premiumstat.setText("Standard");
-            premiumstat.setTextColor(Color.RED);
-        }
-            edit.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    switch (v.getId()) {
-                        case R.id.connect_disconnect:
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.connect_disconnect:
 
-                            Intent i = new Intent(getActivity(), EditProfileFragmentWrapper.class);
-                            startActivity(i);
+                        Intent i = new Intent(getActivity(), EditProfileFragmentWrapper.class);
+                        startActivity(i);
 
-                            break;
-                    }
+                        break;
                 }
-            });
-
+            }
+        });
 
 
         return v;
     }
 
 
-
     @Override
     public void onAttach(Activity activity) {
-        myContext=(FragmentActivity) activity;
+        myContext = (FragmentActivity) activity;
         super.onAttach(activity);
     }
 

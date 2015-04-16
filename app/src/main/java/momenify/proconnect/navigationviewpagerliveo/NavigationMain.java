@@ -19,7 +19,6 @@ import java.util.List;
 
 import br.liveo.interfaces.NavigationLiveoListener;
 import br.liveo.navigationliveo.NavigationLiveo;
-import momenify.proconnect.fragment.BlankFragment;
 import momenify.proconnect.fragment.FragmentMain;
 import momenify.proconnect.fragment.FragmentMyConnections;
 import momenify.proconnect.fragment.FragmentMyProfile;
@@ -118,9 +117,6 @@ public class NavigationMain extends NavigationLiveo implements NavigationLiveoLi
             case 1:
                 mFragment = new FragmentViewPager();
                 break;
-            case 2:
-                mFragment = new BlankFragment();
-                break;
             case 3:
                 mFragment = new FragmentMyConnections();
                 break;
@@ -156,6 +152,6 @@ public class NavigationMain extends NavigationLiveo implements NavigationLiveoLi
 
     @Override
     public void onClickUserPhotoNavigation(View v) {
-        Toast.makeText(this, R.string.open_user_profile, Toast.LENGTH_SHORT).show();
+
     }
 }

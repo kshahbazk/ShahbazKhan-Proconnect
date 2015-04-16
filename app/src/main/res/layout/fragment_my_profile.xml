@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="match_parent" android:layout_height="match_parent"
     android:background="@color/nliveo_blue_gray_colorPrimaryDark"
     >
-
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -130,54 +128,15 @@
             android:layout_below="@+id/join"/>
     </RelativeLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/abc_text_size_body_1_material"
-        android:text="    Upgrade to \n view full profile"
-        android:id="@+id/p_header"
-        android:textColor="@color/nliveo_white"
-        android:layout_below="@id/topSection"
-        android:layout_marginTop="@dimen/margin_medium"
-        android:layout_marginLeft="@dimen/margin_medium"
-        />
-    <Button
-        android:layout_width="95dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/connect_disconnect_update"
-        android:text="Button"
-        android:textColor="@color/nliveo_white"
-        android:layout_marginTop="@dimen/margin_small"
-        android:background="@color/nliveo_blue_gray_colorPrimary"
-        android:layout_below="@+id/topSection"
-        android:layout_toLeftOf="@+id/exit"
-        android:layout_toStartOf="@+id/exit" />
-
-    <Button
-        android:layout_width="95dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/exit"
-        android:text="Exit"
-        android:textColor="@color/nliveo_white"
-        android:background="@color/nliveo_blue_gray_colorPrimary"
-        android:layout_marginTop="@dimen/margin_small"
-        android:layout_marginLeft="@dimen/margin_small"
-        android:layout_below="@+id/topSection"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="@dimen/margin_medium"
-        />
-
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_below="@+id/p_header"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/topSection"
         android:id="@+id/bottomSection"
         android:background="@color/nliveo_blue_gray_colorPrimary"
         android:layout_marginLeft="@dimen/margin_small"
         android:layout_marginRight="@dimen/margin_small"
         android:layout_marginTop="@dimen/margin_medium"
-        android:layout_marginBottom="@dimen/margin_small"
         >
 
 
@@ -204,7 +163,7 @@
             android:layout_toRightOf="@+id/EducationLabel"
             android:layout_toEndOf="@+id/EducationLabel"
             android:src="@drawable/ic_school_black_48dp"
-             />
+            />
 
 
         <TextView
@@ -399,6 +358,7 @@
             android:id="@+id/desiredTitle"
             android:textColor="@color/nliveo_white"
             android:layout_below="@+id/desiredLocale"
+            android:layout_marginBottom="@dimen/margin_small"
             />
 
 
@@ -426,11 +386,21 @@
             android:textColor="@color/nliveo_white"
             android:id="@+id/putDesiredTitle"
             android:layout_below="@+id/putDesiredLocale"
+
             />
 
 
 
     </RelativeLayout>
 
+    <Button
+        android:layout_width="150dp"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:background="@color/nliveo_blue_gray_colorPrimary"
+        android:layout_height="wrap_content"
+        android:text="Update Profile"
+        android:id="@+id/updateButton"
+        android:layout_below="@+id/bottomSection"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
