@@ -23,7 +23,7 @@ public class ListViewAdapter extends BaseAdapter
     // Declare Variables
     Context context;
     LayoutInflater inflater;
-   // ImageLoader imageLoader;
+
     private List<AUserProfile> searchedUsers = null;
     private ArrayList<AUserProfile> arraylist;
 
@@ -34,14 +34,13 @@ public class ListViewAdapter extends BaseAdapter
         inflater = LayoutInflater.from(context);
         this.arraylist = new ArrayList<AUserProfile>();
         this.arraylist.addAll(searchedUsers);
-        //imageLoader = new ImageLoader(context);
+
     }
 
     public class ViewHolder {
         TextView name;
         TextView email;
-        TextView position;
-        TextView company;
+        TextView createdAt;
        // ImageView flag;
     }
 
@@ -65,10 +64,10 @@ public class ListViewAdapter extends BaseAdapter
             holder = new ViewHolder();
             view = inflater.inflate(R.layout.listview_item, null);
             // Locate the TextViews in listview_item.xml
-            holder.name = (TextView) view.findViewById(R.id.name);
-            holder.email = (TextView) view.findViewById(R.id.email);
-            holder.position = (TextView) view.findViewById(R.id.position);
-            holder.company = (TextView) view.findViewById(R.id.company);
+            holder.name = (TextView) view.findViewById(R.id.nameCR);
+            holder.email = (TextView) view.findViewById(R.id.emailCR);
+            holder.createdAt= (TextView) view.findViewById(R.id.joinedCR);
+
             // Locate the ImageView in listview_item.xml
            // holder.flag = (ImageView) view.findViewById(R.id.flag);
             view.setTag(holder);
@@ -78,13 +77,8 @@ public class ListViewAdapter extends BaseAdapter
         // Set the results into TextViews
         holder.name.setText(searchedUsers.get(position).getName());
         holder.email.setText(searchedUsers.get(position).getEmail());
-        holder.position.setText(searchedUsers.get(position)
-                .getPosition());
-        holder.company.setText(searchedUsers.get(position)
-                .getCompany());
-        // Set the results into ImageView
-       // imageLoader.DisplayImage(searchedUser.get(position).getFlag(),
-      //          holder.flag);
+        holder.createdAt.setText(searchedUsers.get(position).getCreatedAt());
+
         // Listen for ListView Item Click
         view.setOnClickListener(new View.OnClickListener() {
 
@@ -101,13 +95,11 @@ public class ListViewAdapter extends BaseAdapter
                 // Pass all data email
                 intent.putExtra("email",
                         (searchedUsers.get(position).getEmail()));
-                // Pass all data position
-                intent.putExtra("position",
-                        (searchedUsers.get(position).getPosition()));
-                // Pass all data company
-                intent.putExtra("company",
-                        (searchedUsers.get(position).getCompany()));
+                //pass the objectId
+                intent.putExtra("objectId", searchedUsers.get(position).getObjectId());
                 // Start SingleItemView Class
+
+                intent.putExtra("joined", searchedUsers.get(position).getCreatedAt());
                 context.startActivity(intent);
 
             }

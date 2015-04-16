@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:id="@+id/relativecontainer"
+    android:id="@+id/editid"
     >
-
 
     <TextView
         android:layout_width="wrap_content"
@@ -12,8 +11,8 @@
         android:layout_marginTop="38dp"
         android:layout_toRightOf="@+id/mys"
         android:textColor="@color/nliveo_green_alpha_colorPrimaryDark"
-        android:textSize="@dimen/abc_text_size_subhead_material"
-        android:id="@+id/UserName"
+        android:textSize="@dimen/abc_text_size_title_material"
+        android:id="@+id/editUserName"
         android:gravity="center"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -24,126 +23,115 @@
         android:layout_marginLeft="@dimen/margin_medium"
         android:layout_marginTop="@dimen/margin_medium"
         android:textSize="@dimen/abc_text_size_subhead_material"
-        android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/mys"
-        android:text="Position: "
-        android:id="@+id/descLabel" />
+        android:text="Current Position: "
+        android:id="@+id/editdescLabel" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:id="@+id/editdesc"
+        android:layout_marginRight="@dimen/margin_medium"
+        android:layout_alignBottom="@+id/editdescLabel"
+        android:layout_toRightOf="@+id/editdescLabel"
+        android:layout_toEndOf="@+id/editdescLabel" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/abc_text_size_subhead_material"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="None Specified"
-        android:id="@+id/desc"
-        android:layout_alignTop="@+id/descLabel"
-        android:layout_toRightOf="@+id/descLabel"
-        android:layout_toEndOf="@+id/descLabel" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_large"
         android:layout_marginLeft="@dimen/margin_medium"
         android:textSize="@dimen/abc_text_size_subhead_material"
-        android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/descLabel"
+        android:layout_below="@+id/editdescLabel"
         android:text="Email: "
-        android:id="@+id/emailLabel" />
+        android:id="@+id/editemailLabel" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/abc_text_size_subhead_material"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="None Specified"
-        android:id="@+id/emai"
-        android:layout_alignTop="@+id/emailLabel"
-        android:layout_toRightOf="@+id/emailLabel"
-        android:layout_toEndOf="@+id/emailLabel" />
+        android:inputType="textEmailAddress"
+        android:id="@+id/editemai"
+        android:layout_alignBottom="@+id/editemailLabel"
+        android:layout_toRightOf="@+id/editemailLabel"
+        android:layout_toEndOf="@+id/editemailLabel" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_large"
         android:layout_marginLeft="@dimen/margin_medium"
         android:textSize="@dimen/abc_text_size_subhead_material"
-        android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/emailLabel"
+        android:layout_below="@+id/editemailLabel"
         android:text="Current Employer: "
-        android:id="@+id/empLabel" />
+        android:id="@+id/editempLabel" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:id="@+id/editemp"
+        android:layout_marginRight="@dimen/margin_medium"
+        android:layout_alignBottom="@+id/editempLabel"
+        android:layout_toRightOf="@+id/editempLabel"
+        android:layout_toEndOf="@+id/editempLabel" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/abc_text_size_subhead_material"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="None Specified"
-        android:id="@+id/emp"
-        android:layout_alignTop="@+id/empLabel"
-        android:layout_toRightOf="@+id/empLabel"
-        android:layout_toEndOf="@+id/empLabel" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_large"
         android:layout_marginLeft="@dimen/margin_medium"
         android:textSize="@dimen/abc_text_size_subhead_material"
-        android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/empLabel"
+        android:layout_below="@+id/editempLabel"
         android:text="Education: "
-        android:id="@+id/eduLabel" />
+        android:id="@+id/editeduLabel" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:id="@+id/editedu"
+        android:layout_marginRight="@dimen/margin_medium"
+        android:layout_alignBottom="@+id/editeduLabel"
+        android:layout_toRightOf="@+id/editeduLabel"
+        android:layout_toEndOf="@+id/editeduLabel" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/abc_text_size_subhead_material"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="None Specified"
-        android:id="@+id/edu"
-        android:layout_alignTop="@+id/eduLabel"
-        android:layout_toRightOf="@+id/eduLabel"
-        android:layout_toEndOf="@+id/eduLabel" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_large"
         android:layout_marginLeft="@dimen/margin_medium"
         android:textSize="@dimen/abc_text_size_subhead_material"
-        android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/eduLabel"
+        android:layout_below="@+id/editeduLabel"
         android:text="Current Address: "
-        android:id="@+id/addressLabel" />
+        android:id="@+id/editaddressLabel" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPostalAddress"
+        android:id="@+id/editaddre"
+        android:layout_marginRight="@dimen/margin_medium"
+        android:layout_alignBottom="@+id/editaddressLabel"
+        android:layout_toRightOf="@+id/editaddressLabel"
+        android:layout_toEndOf="@+id/editaddressLabel" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/abc_text_size_subhead_material"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="None Specified"
-        android:id="@+id/addre"
-        android:layout_alignTop="@+id/addressLabel"
-        android:layout_toRightOf="@+id/addressLabel"
-        android:layout_toEndOf="@+id/addressLabel" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_large"
         android:layout_marginLeft="@dimen/margin_medium"
         android:textSize="@dimen/abc_text_size_subhead_material"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/addressLabel"
+        android:layout_below="@+id/editaddressLabel"
         android:text="Premium Status: "
-        android:id="@+id/premLabel" />
+        android:id="@+id/editpremLabel" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -151,10 +139,12 @@
         android:textSize="@dimen/abc_text_size_subhead_material"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="None Specified"
-        android:id="@+id/prem"
-        android:layout_alignTop="@+id/premLabel"
-        android:layout_toRightOf="@+id/premLabel"
-        android:layout_toEndOf="@+id/premLabel" />
+        android:id="@+id/editprem"
+        android:layout_alignTop="@+id/editpremLabel"
+        android:layout_toRightOf="@+id/editpremLabel"
+        android:layout_toEndOf="@+id/editpremLabel" />
+
+
 
 
     <ImageView
@@ -164,31 +154,30 @@
         android:id="@+id/mys"
         android:layout_marginTop="@dimen/margin_large"
         android:layout_marginLeft="@dimen/margin_medium"
-        android:layout_alignTop="@+id/UserName"
+        android:layout_alignTop="@+id/editUserName"
         android:layout_alignParentTop="true"
-     />
+        />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/premLabel"
-        android:layout_marginTop="@dimen/margin_huge"
+        android:layout_marginTop="@dimen/margin_large"
+        android:layout_below="@+id/editpremLabel"
         android:layout_centerHorizontal="true"
-        >
+       >
         <Button
             android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:text="New Button"
+            android:text="Save"
+            android:id="@+id/editsave"
             android:layout_marginRight="@dimen/margin_medium"
-            android:id="@+id/connect_disconnect"
             />
-
         <Button
             android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:text="Exit"
-            android:id="@+id/exit"
+            android:text="Cancel"
+            android:id="@+id/editExit"
             />
 
     </LinearLayout>

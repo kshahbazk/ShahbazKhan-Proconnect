@@ -22,6 +22,8 @@ import com.parse.ParseException;
 import com.parse.ParseRelation;
 import com.parse.ParseUser;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -90,13 +92,14 @@ public class FragmentMyConnections extends Fragment {
 
                 // Map the into User Profile
 
+                Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
                 for (ParseUser user : ob) {
 
                     AUserProfile map = new AUserProfile();
                     map.setName((String) user.get("name"));
                     map.setEmail((String) user.get("email"));
-                    map.setPosition((String) user.get("position"));
-                    map.setCompany((String) user.get("company"));
+                    map.setCreatedAt(formatter.format(user.getCreatedAt()));
                     myConnections.add(map);
                 }
             } catch (ParseException e) {

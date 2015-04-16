@@ -3,7 +3,7 @@
 
     <string name="app_name">ProConnect</string>
     <string name="inbox">My Profile</string>
-    <string name="starred">News</string>
+    <string name="starred">Home</string>
     <string name="sent_mail">Forums</string>
     <string name="drafts">My Connections</string>
     <string name="more_markers">More</string>
@@ -45,7 +45,22 @@
     <string name="positionlabel">"Position : "</string>
     <string name="companylabel">"Company : "</string>
     <string name="title_activity_user_profile_view">UserProfileView</string>
-    <string name="title_activity_acceptance">Acceptance</string>
+    <string name="title_activity_acceptance">Accept of Deny</string>
+
+
+    <string name="profileImage">Profile Photo</string>
+    <string name="profileName">User Name</string>
+    <string name="company_label">Current Employer: </string>
+    <string name="position_label">Position: </string>
+    <string name="position_text">none specified</string>
+    <string name="education_label">Education: </string>
+    <string name="education_text">none-specified</string>
+    <string name="company_text">none-specified</string>
+    <string name="current_address_label">Current Address: </string>
+    <string name="current_address_text">none-specified</string>
+    <string name="desc_label">Description: </string>
+    <string name="desc_text">none-specified</string>
+    <string name="title_activity_edit_profile">Edit Profile</string>
 
 
 

@@ -23,7 +23,10 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import momenify.proconnect.adapter.CRListViewAdapter;
@@ -41,6 +44,7 @@ public class FragmentConnectionRequests extends Fragment {
     List<ParseObject> ob;
     ProgressDialog mProgressDialog;
     CRListViewAdapter adapter;
+   // private Format formatter;
     private boolean mSearchCheck;
     private List<AUserProfile> connectionRequests = null;
 
@@ -55,7 +59,7 @@ public class FragmentConnectionRequests extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        return inflater.inflate(R.layout.fragment_friends_requests, container, false);
+        return inflater.inflate(R.layout.fragment_connection_requests, container, false);
 
 
     }
@@ -98,12 +102,15 @@ public class FragmentConnectionRequests extends Fragment {
                 // Fill lill of ParseObjects with our query
                 ob = query.find();
 
-                // Map the into User Profile
+               Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
 
                 for (ParseObject user : ob) {
 
                     AUserProfile map = new AUserProfile();
-                    map.setName((String) user.getParseUser("fromUser").fetchIfNeeded().get("name"));
+                    map.setName(user.getParseUser("fromUser").fetchIfNeeded().getString("name"));
+                    map.setEmail(user.getParseUser("fromUser").fetchIfNeeded().getString("email"));
+                    map.setCreatedAt(formatter.format(user.getParseUser("fromUser").fetchIfNeeded().getCreatedAt()));
                     connectionRequests.add(map);
                 }
             } catch (ParseException e) {
@@ -196,6 +203,12 @@ public class FragmentConnectionRequests extends Fragment {
 
 
     };
+
+    public static String getFormattedDate() {
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat(); //called without pattern
+        return df.format(c.getTime());
+    }
 
 
 }

@@ -7,7 +7,7 @@
     android:paddingBottom="@dimen/com_parse_ui_vertical_margin"
     android:gravity="center"
     android:orientation="vertical"
-    android:background="@color/nliveo_green_colorPrimary"
+    android:background="@color/nliveo_blue_gray_colorPrimary"
     >
 
     <include

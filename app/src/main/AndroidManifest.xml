@@ -46,14 +46,19 @@
             android:name="momenify.proconnect.objects.UserProfileView"
             android:label="@string/title_activity_user_profile_view" >
         </activity>
+        <activity
+            android:name="momenify.proconnect.objects.Acceptance"
+            android:theme="@style/nLiveoDrawer" >
+            <intent-filter>
+                <action android:name="momenify.proconnect.objects.Acceptance" />
 
-    <activity android:name="momenify.proconnect.objects.Acceptance" android:theme="@style/nLiveoDrawer">
-        <intent-filter>
-            <action android:name="momenify.proconnect.objects.Acceptance" />
-            <category android:name="android.intent.category.DEFAULT" />
-
-        </intent-filter>
-    </activity>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="momenify.proconnect.objects.EditProfileFragmentWrapper"
+            android:label="@string/title_activity_edit_profile" >
+        </activity>
     </application>
 
 </manifest>

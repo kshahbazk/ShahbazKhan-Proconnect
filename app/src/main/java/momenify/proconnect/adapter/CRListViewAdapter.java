@@ -31,6 +31,7 @@ public class CRListViewAdapter extends BaseAdapter{
 
 
 
+
     public CRListViewAdapter(Context context,
                            List<AUserProfile> searchedUsers, List<ParseObject> ob) {
         this.ob=ob;
@@ -40,10 +41,13 @@ public class CRListViewAdapter extends BaseAdapter{
         this.arraylist = new ArrayList<AUserProfile>();
         this.arraylist.addAll(searchedUsers);
 
+
     }
 
     public class ViewHolder {
         TextView name;
+        TextView email;
+        TextView createdat;
 
     }
 
@@ -67,7 +71,9 @@ public class CRListViewAdapter extends BaseAdapter{
             holder = new ViewHolder();
             view = inflater.inflate(R.layout.connection_request_listitem, null);
             // Locate the TextViews in listview_item.xml
-            holder.name = (TextView) view.findViewById(R.id.name);
+            holder.name = (TextView) view.findViewById(R.id.nameCR);
+            holder.email= (TextView) view.findViewById(R.id.emailCR);
+            holder.createdat = (TextView) view.findViewById(R.id.joinedCR);
 
             
             view.setTag(holder);
@@ -75,14 +81,15 @@ public class CRListViewAdapter extends BaseAdapter{
             holder = (ViewHolder) view.getTag();
         }
 
+
             // Set the results into TextViews
             holder.name.setText(searchedUsers.get(position).getName());
+            holder.email.setText(searchedUsers.get(position).getEmail());
+            holder.createdat.setText(searchedUsers.get(position).getCreatedAt());
 
 
 
         // Listen for ListView Item Click
-
-
         view.setOnClickListener(new View.OnClickListener() {
 
 
@@ -92,45 +99,18 @@ public class CRListViewAdapter extends BaseAdapter{
 
                 currentRequest = ob.get(position);
 
-
-
-
             Intent intent = new Intent(context, Acceptance.class);
-
 
             // Pass all data name
             intent.putExtra("objectId", currentRequest.getObjectId());
 
-
-            // Start AcceptorDeny Class
+            // Start Acceptance Class
             context.startActivity(intent);
 
         }
         });
         return view;
     }
-//    public void postData(String i) {
-//        HttpClient httpclient = new DefaultHttpClient();
-//        HttpPost httppost = new HttpPost("http://proconnect.thefreebit.com/cr.php");
-//
-//        try {
-//
-//            List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-//            nameValuePairs.add(new BasicNameValuePair("id", i));
-//
-//            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-//
-//            // Execute HTTP Post Request
-//            HttpResponse response = httpclient.execute(httppost);
-//
-//
-//
-//        } catch (ClientProtocolException e) {
-//            // Catch Protocol Exception
-//        } catch (IOException e) {
-//            // Catch IOException
-//        }
-//    }
 
 
 }

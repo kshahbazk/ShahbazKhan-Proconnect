@@ -9,8 +9,8 @@
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="@dimen/tab_layout_height"
-        android:background="?attr/colorPrimary"
-        app:pstsIndicatorColor="@color/nliveo_white" />
+        android:background="@color/nliveo_blue_gray_colorPrimary"
+        app:pstsIndicatorColor="@color/nliveo_blue_gray_colorPrimaryDark" />
 
     <View
         android:id="@+id/shadow"
