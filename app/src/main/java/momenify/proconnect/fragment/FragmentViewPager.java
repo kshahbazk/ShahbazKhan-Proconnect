@@ -21,9 +21,9 @@ public class FragmentViewPager extends Fragment{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mTabs.add(new TabPagerItem(0, getString(momenify.proconnect.navigationviewpagerliveo.R.string.starred)));
+        mTabs.add(new TabPagerItem(0, "The future of recruitment..."));
         mTabs.add(new TabPagerItem(1, getString(momenify.proconnect.navigationviewpagerliveo.R.string.important)));
-        mTabs.add(new TabPagerItem(2, getString(momenify.proconnect.navigationviewpagerliveo.R.string.documents)));
+        mTabs.add(new TabPagerItem(2, "My Requests"));
     }
 
     @Override

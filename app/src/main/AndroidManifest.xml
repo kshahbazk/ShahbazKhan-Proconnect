@@ -41,10 +41,16 @@
         <activity
             android:name=".ListActivity"
             android:label="@string/title_activity_list" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="momenify.proconnect.navigationviewpagerliveo.NavigationMain" />
         </activity>
         <activity
             android:name="momenify.proconnect.objects.UserProfileView"
             android:label="@string/title_activity_user_profile_view" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="momenify.proconnect.navigationviewpagerliveo.NavigationMain" />
         </activity>
         <activity
             android:name="momenify.proconnect.objects.Acceptance"
@@ -54,10 +60,29 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="momenify.proconnect.navigationviewpagerliveo.NavigationMain" />
         </activity>
         <activity
             android:name="momenify.proconnect.objects.EditProfileFragmentWrapper"
             android:label="@string/title_activity_edit_profile" >
+        </activity>
+        <activity
+            android:name=".ViewEducationActivity"
+            android:label="@string/title_activity_view_education" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="momenify.proconnect.navigationviewpagerliveo.NavigationMain" />
+        </activity>
+        <activity
+            android:name=".ViewExperienceActivity"
+            android:label="@string/title_activity_view_experience"
+            android:parentActivityName=".NavigationMain" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="momenify.proconnect.navigationviewpagerliveo.NavigationMain" />
         </activity>
     </application>
 

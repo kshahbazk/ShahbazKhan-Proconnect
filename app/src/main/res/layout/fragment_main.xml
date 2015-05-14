@@ -10,17 +10,16 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="121dp"
+        android:layout_marginTop="@dimen/margin_medium"
         android:contentDescription="@string/clear"
-        android:src="@drawable/ic_launcher" />
+        android:src="@drawable/newloginlogo" />
 
     <TextView
         android:id="@+id/txtTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imgLiveo"        
+        android:layout_below="@+id/imgLiveo"
         android:gravity="center"
-        android:layout_marginTop="16dp"
-        android:text="@string/clear"
+        android:text="The future of recruitment..."
         android:textAppearance="?android:attr/textAppearanceMedium" />
 </RelativeLayout>

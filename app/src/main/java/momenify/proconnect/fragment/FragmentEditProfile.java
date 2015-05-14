@@ -2,7 +2,6 @@ package momenify.proconnect.fragment;
 
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
@@ -13,17 +12,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 import momenify.proconnect.navigationviewpagerliveo.ListActivity;
 import momenify.proconnect.navigationviewpagerliveo.LoginActivity;
-import momenify.proconnect.navigationviewpagerliveo.NavigationMain;
 import momenify.proconnect.navigationviewpagerliveo.R;
 
 /**
@@ -47,58 +42,57 @@ public class FragmentEditProfile extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.fragment_edit_profile, container, false);
+        View v = inflater.inflate(R.layout.fragment_myprofile_edit, container, false);
 
 
-        Boolean premium = ParseUser.getCurrentUser().getBoolean("premium");
-        Button save = (Button) v.findViewById(R.id.editsave);
-        Button exit = (Button) v.findViewById(R.id.editExit);
-        TextView email = (TextView)v.findViewById(R.id.editemai);
-        TextView name = (TextView)v.findViewById(R.id.editUserName);
-         updateProfile = new ParseObject("profile");
-         position = (EditText) v.findViewById(R.id.editdesc);
-         emp = (EditText) v.findViewById(R.id.editemp);
-         edu = (EditText) v.findViewById(R.id.editedu);
-         addre = (EditText) v.findViewById(R.id.editaddre);
-         TextView premiumstat = (TextView) v.findViewById(R.id.editprem);
 
-         email.setText(ParseUser.getCurrentUser().getEmail());
-         name.setText(ParseUser.getCurrentUser().getString("name"));
+//        Button save = (Button) v.findViewById(R.id.saveButton);
+//        Button exit = (Button) v.findViewById(R.id.exitButton);
+//
+//         updateProfile = new ParseObject("profile");
+//         position = (EditText) v.findViewById(R.id.editdesc);
+//         emp = (EditText) v.findViewById(R.id.editemp);
+//         edu = (EditText) v.findViewById(R.id.editedu);
+//         addre = (EditText) v.findViewById(R.id.editaddre);
+//         TextView premiumstat = (TextView) v.findViewById(R.id.editprem);
+//
+//         email.setText(ParseUser.getCurrentUser().getEmail());
+//         name.setText(ParseUser.getCurrentUser().getString("name"));
+//
+//        if(premium)
+//        {
+//            premiumstat.setText("Premium");
+//            premiumstat.setTextColor(Color.GREEN);
+//        }
+//        else
+//        {
+//            premiumstat.setText("Standard");
+//            premiumstat.setTextColor(Color.RED);
+//        }
 
-        if(premium)
-        {
-            premiumstat.setText("Premium");
-            premiumstat.setTextColor(Color.GREEN);
-        }
-        else
-        {
-            premiumstat.setText("Standard");
-            premiumstat.setTextColor(Color.RED);
-        }
-
-            save.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    updateProfile.put("currentPosition", position.getText().toString());
-                    updateProfile.put("currentEmployer", emp.getText().toString());
-                    updateProfile.put("education", edu.getText().toString());
-                    updateProfile.put("address", addre.getText().toString());
-                    ParseUser.getCurrentUser().put("profile", updateProfile);
-                    updateProfile.saveInBackground();
-                    ParseUser.getCurrentUser().saveInBackground();
-                    Toast.makeText(getActivity(), "Saved Profle", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(getActivity(), NavigationMain.class);
-                    startActivity(i);
-                }
-            });
-
-        exit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getActivity(), NavigationMain.class);
-                startActivity(i);
-            }
-        });
+//            save.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    updateProfile.put("currentPosition", position.getText().toString());
+//                    updateProfile.put("currentEmployer", emp.getText().toString());
+//                    updateProfile.put("education", edu.getText().toString());
+//                    updateProfile.put("address", addre.getText().toString());
+//                    ParseUser.getCurrentUser().put("profile", updateProfile);
+//                    updateProfile.saveInBackground();
+//                    ParseUser.getCurrentUser().saveInBackground();
+//                    Toast.makeText(getActivity(), "Saved Profle", Toast.LENGTH_SHORT).show();
+//                    Intent i = new Intent(getActivity(), NavigationMain.class);
+//                    startActivity(i);
+//                }
+//            });
+//
+//        exit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(getActivity(), NavigationMain.class);
+//                startActivity(i);
+//            }
+//        });
 
        return v;
     }

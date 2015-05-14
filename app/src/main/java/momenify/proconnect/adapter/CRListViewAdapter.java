@@ -23,7 +23,7 @@ import momenify.proconnect.objects.Acceptance;
 public class CRListViewAdapter extends BaseAdapter{
     Context context;
     LayoutInflater inflater;
-    // ImageLoader imageLoader;
+
     private List<AUserProfile> searchedUsers = null;
     private List<ParseObject> ob;
     private ArrayList<AUserProfile> arraylist;
@@ -51,20 +51,22 @@ public class CRListViewAdapter extends BaseAdapter{
 
     }
 
-    //   @Override
+       @Override
     public int getCount() {
         return searchedUsers.size();
     }
 
-    //   @Override
+      @Override
     public Object getItem(int position) {
         return searchedUsers.get(position);
     }
 
-    //   @Override
+       @Override
     public long getItemId(int position) {
         return position;
     }
+
+
     public View getView(final int position, View view, ViewGroup parent) {
         final ViewHolder holder;
         if (view == null) {

@@ -61,6 +61,8 @@
     <string name="desc_label">Description: </string>
     <string name="desc_text">none-specified</string>
     <string name="title_activity_edit_profile">Edit Profile</string>
+    <string name="title_activity_view_education">ViewEducationActivity</string>
+    <string name="title_activity_view_experience">ViewExperienceActivity</string>
 
 
 

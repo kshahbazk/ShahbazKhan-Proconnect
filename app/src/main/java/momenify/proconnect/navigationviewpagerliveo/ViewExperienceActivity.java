@@ -12,33 +12,32 @@ import android.view.MenuItem;
 import android.widget.ListView;
 
 import com.parse.ParseException;
-import com.parse.ParseQuery;
+import com.parse.ParseObject;
+import com.parse.ParseRelation;
 import com.parse.ParseUser;
 
-import java.text.Format;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
 
-import momenify.proconnect.adapter.ListViewAdapter;
-import momenify.proconnect.objects.AUserProfile;
+import momenify.proconnect.adapter.ExperienceListViewAdapter;
 
-public class ListActivity extends ActionBarActivity {
+public class ViewExperienceActivity extends ActionBarActivity {
 
     ListView listview;
-    List<ParseUser> ob;
+    List<ParseObject> listofexp;
+    ParseObject myProfile;
     ProgressDialog mProgressDialog;
-    ListViewAdapter adapter;
-    private List<AUserProfile> searchedUsers = null;
+    ExperienceListViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list);
+        setContentView(R.layout.activity_view_experience);
+
         new RemoteDataTask().execute();
         ActionBar ab = getSupportActionBar();
 
-        ab.setTitle("Search Results...");
+        ab.setTitle("All Experience");
+        ab.setDisplayHomeAsUpEnabled(true);
     }
 
 
@@ -48,11 +47,11 @@ public class ListActivity extends ActionBarActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             // Create a progressdialog
-            mProgressDialog = new ProgressDialog(ListActivity.this);
+            mProgressDialog = new ProgressDialog(ViewExperienceActivity.this);
             // Set progressdialog title
-            mProgressDialog.setTitle("Listing Users");
+            mProgressDialog.setTitle("Listing Experience");
             // Set progressdialog message
-            mProgressDialog.setMessage("Searching...");
+            mProgressDialog.setMessage("Listing...");
             mProgressDialog.setIndeterminate(false);
             // Show progressdialog
             mProgressDialog.show();
@@ -60,34 +59,17 @@ public class ListActivity extends ActionBarActivity {
 
         @Override
         protected Void doInBackground(Void... params) {
-            // Create the array
-            searchedUsers = new ArrayList<AUserProfile>();
+
             try {
                 //Query for all users
-                ParseQuery<ParseUser> UserQuery = ParseUser.getQuery();
-                // Create a bundle in which you can recieve the search string from our search bar
-                Bundle extras = getIntent().getExtras();
-                String thesearch = extras.getString("Search");
-                if (thesearch.contains("@")) {
-                    ob = UserQuery.whereMatches("email", "(" + thesearch + ")", "i").find();
 
-                } else {
-                    ob = UserQuery.whereMatches("name", "(" + thesearch + ")", "i").find();
-
-                }
+                myProfile = ParseUser.getCurrentUser().getParseObject("profile").fetchIfNeeded();
+                ParseRelation<ParseObject> query = myProfile.getRelation("experienceList");
+                //Fill the list of ParseUsers with our query
+                listofexp = query.getQuery().find();
 
 
-                Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-                for (ParseUser user : ob) {
-
-                    AUserProfile map = new AUserProfile();
-                    map.setName( user.getString("name"));
-                    map.setEmail( user.getString("email"));
-                    map.setCreatedAt(formatter.format(user.getCreatedAt()));
-                    map.setObjectId(user.getObjectId());
-                    searchedUsers.add(map);
-                }
             } catch (ParseException e) {
                 Log.e("Error", e.getMessage());
                 e.printStackTrace();
@@ -98,10 +80,9 @@ public class ListActivity extends ActionBarActivity {
         @Override
         protected void onPostExecute(Void result) {
             // Locate the listview in listview_main.xml
-            listview = (ListView) findViewById(R.id.listview);
+            listview = (ListView) findViewById(R.id.explistview);
             // Pass the results into ListViewAdapter.java
-            adapter = new ListViewAdapter(ListActivity.this,
-                    searchedUsers);
+            adapter = new ExperienceListViewAdapter(ViewExperienceActivity.this,listofexp);
             // Binds the Adapter to the ListView
             listview.setAdapter(adapter);
             // Close the progressdialog
@@ -137,5 +118,4 @@ public class ListActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 }

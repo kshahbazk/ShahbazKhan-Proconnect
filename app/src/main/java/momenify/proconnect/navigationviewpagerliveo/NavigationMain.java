@@ -19,6 +19,7 @@ import java.util.List;
 
 import br.liveo.interfaces.NavigationLiveoListener;
 import br.liveo.navigationliveo.NavigationLiveo;
+import momenify.proconnect.fragment.BlankFragment;
 import momenify.proconnect.fragment.FragmentMain;
 import momenify.proconnect.fragment.FragmentMyConnections;
 import momenify.proconnect.fragment.FragmentMyProfile;
@@ -42,18 +43,18 @@ public class NavigationMain extends NavigationLiveo implements NavigationLiveoLi
 
         mListNameItem = new ArrayList<>();
         mListNameItem.add(0, getString(R.string.inbox));
-        mListNameItem.add(1, getString(R.string.starred));
+        mListNameItem.add(1, "My Connections");
         mListNameItem.add(2, getString(R.string.sent_mail));
-        mListNameItem.add(3, getString(R.string.drafts));
+        mListNameItem.add(3, "Premium Features");
         mListNameItem.add(4, getString(R.string.more_markers)); //This item will be a subHeader
         mListNameItem.add(5, getString(R.string.trash));
         mListNameItem.add(6, getString(R.string.spam));
 
         List<Integer> mListIconItem = new ArrayList<>();
         mListIconItem.add(0, R.drawable.ic_person_grey600_48dp);
-        mListIconItem.add(1, R.drawable.ic_location_city_grey600_48dp);
+        mListIconItem.add(1, R.drawable.ic_group_grey600_48dp);;
         mListIconItem.add(2, R.drawable.ic_pages_grey600_48dp);
-        mListIconItem.add(3, R.drawable.ic_group_grey600_48dp);
+        mListIconItem.add(3, R.drawable.ic_party_mode_grey600_48dp);
         mListIconItem.add(4, 0); //When the item is a subHeader the value of the icon 0
         mListIconItem.add(5, R.drawable.ic_mood_grey600_48dp);
         mListIconItem.add(6, R.drawable.ic_plus_one_grey600_48dp);
@@ -72,7 +73,7 @@ public class NavigationMain extends NavigationLiveo implements NavigationLiveoLi
 
 
         SparseIntArray mSparseCounterItem = new SparseIntArray(); //indicate all items that have a counter
-        mSparseCounterItem.put(3, ob.size());
+        mSparseCounterItem.put(1, 1);
 
 
         this.setElevationToolBar(this.getCurrentPosition() != 1 ? 15 : 0);
@@ -116,6 +117,10 @@ public class NavigationMain extends NavigationLiveo implements NavigationLiveoLi
                 break;
             case 1:
                 mFragment = new FragmentViewPager();
+                break;
+
+            case 2:
+                mFragment = new BlankFragment();
                 break;
             case 3:
                 mFragment = new FragmentMyConnections();
