@@ -17,15 +17,20 @@ import android.widget.TextView;
 
 import com.parse.ParseUser;
 
-import momenify.proconnect.navigationviewpagerliveo.ListActivity;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+import momenify.proconnect.activities.SearchAgentActivity;
 import momenify.proconnect.navigationviewpagerliveo.LoginActivity;
 import momenify.proconnect.navigationviewpagerliveo.R;
+
 
 
 public class FragmentMain extends Fragment {
 
     private boolean mSearchCheck;
     public static final String TEXT_FRAGMENT = "TEXT_FRAGMENT";
+    private ParseUser myUser;
 
     public FragmentMain newInstance(String text) {
         FragmentMain mFragment = new FragmentMain();
@@ -43,6 +48,8 @@ public class FragmentMain extends Fragment {
 
         TextView mTxtTitle = (TextView) rootView.findViewById(R.id.txtTitle);
         mTxtTitle.setText(getArguments().getString(TEXT_FRAGMENT));
+
+        myUser = ParseUser.getCurrentUser();
 
         rootView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
         return rootView;
@@ -82,10 +89,32 @@ public class FragmentMain extends Fragment {
 
             case R.id.menu_add:
 
+                if(myUser.getBoolean("onShift")) {
+                    myUser.put("onShift", false);
+
+                    myUser.put("status" , "Off Shift");
+       //             myUser.put("lunch" , "Off Shift");
+
+
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+                    String timeout = sdf.format(Calendar.getInstance().getTime());
+
+              //      myUser.put("time_in", "Off Shift");
+                    myUser.put("time_out", timeout);
+
+                    myUser.saveInBackground();
+
+
+                }
+
                 ParseUser.logOut();
 
                 Intent i = new Intent(getActivity(), LoginActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
+                getActivity().finish();
+
                 break;
 
             case R.id.menu_search:
@@ -102,7 +131,7 @@ public class FragmentMain extends Fragment {
 
             if (mSearchCheck) {
                 if (s != null) {
-                    Intent i2 = new Intent(getActivity(), ListActivity.class);
+                    Intent i2 = new Intent(getActivity(), SearchAgentActivity.class);
                     i2.putExtra("Search", s);
                     startActivity(i2);
                 }

@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/nliveo_blue_gray_colorPrimaryDark"
+    android:background="@color/materialblueprimary"
     >
 
     <ImageView
@@ -12,7 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/margin_medium"
         android:contentDescription="@string/clear"
-        android:src="@drawable/newloginlogo" />
+        android:src="@drawable/d4" />
 
     <TextView
         android:id="@+id/txtTitle"
@@ -20,6 +20,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/imgLiveo"
         android:gravity="center"
-        android:text="The future of recruitment..."
+        android:text="Accenture..."
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+
+
 </RelativeLayout>

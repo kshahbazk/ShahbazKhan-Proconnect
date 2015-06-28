@@ -2,6 +2,7 @@ package momenify.proconnect.navigationviewpagerliveo;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -26,8 +27,12 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
 
 
-        Parse.initialize(this, "ssIqti6an7anOenvJvIXBDPUurX70V6rXyKxONcx", "LwzXfVOaoe26QKvUCNia8jisgul1nS3c2Lk2whMX");
+
+
+
+        Parse.initialize(this, "dAs3XsEolRwzDpAhf0L7ZF2kXbId851ir48Pwoe2", "5XinGADJUqC7AEpOvdDoeR3FAmGZmgfo3n8QWDB4");
         Parse.setLogLevel(Parse.LOG_LEVEL_DEBUG);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         setContentView(R.layout.login_page);
         titleTextView = (TextView) findViewById(R.id.profile_title);

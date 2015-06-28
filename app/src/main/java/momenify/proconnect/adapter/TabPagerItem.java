@@ -2,9 +2,13 @@ package momenify.proconnect.adapter;
 
 import android.support.v4.app.Fragment;
 
-import momenify.proconnect.fragment.FragmentConnectionRequests;
-import momenify.proconnect.fragment.FragmentMain;
-import momenify.proconnect.fragment.FragmentMyConnections;
+import momenify.proconnect.fragment.InOtherQueueDashboard;
+import momenify.proconnect.fragment.OrionDffQueueDashboard;
+import momenify.proconnect.fragment.OrionGenQueueDashboard;
+import momenify.proconnect.fragment.OrionTrainingDashboard;
+import momenify.proconnect.fragment.OrionLunchDashboard;
+import momenify.proconnect.fragment.OrionOnSpecialProjectDashboard;
+import momenify.proconnect.fragment.OrionShiftDashboard;
 
 public class TabPagerItem {
 	
@@ -16,7 +20,9 @@ public class TabPagerItem {
         this.mTitle = title;
         this.position = position;
 
-        listFragments = new Fragment[] {new FragmentMain().newInstance(title.toString()), new FragmentMyConnections(), new FragmentConnectionRequests()};
+        listFragments = new Fragment[] {new OrionShiftDashboard(), new OrionGenQueueDashboard(),
+                new InOtherQueueDashboard(), new OrionLunchDashboard()
+                ,new OrionTrainingDashboard(),new OrionOnSpecialProjectDashboard()};
     }
 
     public Fragment createFragment() {

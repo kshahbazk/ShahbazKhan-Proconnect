@@ -10,6 +10,7 @@
 	<color name="blue">#ff0000ff</color>
 	<color name="grey1">#ffaaaaaa</color>
 	<color name="grey2">#ffdddddd</color>
+	<color name="myblue">#57a4ed</color>
 	<color name="grey3">#ff666666</color>
 	<color name="grey4">#ff222222</color>
 	<color name="grey5">#ff777777</color>
@@ -18,5 +19,10 @@
 	<color name="OSWbackground">#dddddd</color>
 	<color name="OSWtopbar">#888888</color>
 	<color name="OSWbuttonbar">#88888888</color>
+	<color name="materialbluealpha">#B3E5FC</color>
+	<color name="materialblueprimary">#81D4FA</color>
+	<color name="materialbluedark">#4FC3F7</color>
+	<color name="materialoffwhite">#e8e8e8</color>
+
 
 </resources>
